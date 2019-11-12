@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Танчики</title>
+</head>
+<body>
+    
+
+    <script src="/engine/Loader.js"></script>
+
+    <script>
+        const{ Loader } = GameEngine
+
+        const loader = new Loader
+        loader.addImage('bmw', 'static/bmw.jpg')
+        loader.addJson('person', 'static/person.json')
+
+        loader.load(() =>{
+            console.log('Image loaders')
+        })
+        GameEngine.Loader.loadImage('static/bmw.jpg').then(image => {
+            console.log(image)
+            document.body.append(image)
+        })
+    </script>
+</body>
+</html>
