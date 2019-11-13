@@ -21,6 +21,14 @@
             this.loadOrder.json.push({ name, addres })
         }
 
+        getImage(name){
+            return this.resources.images[name]
+        }
+
+        getJson(name){
+            return this.resources.json[name]
+        }
+
         load(callback){
             const promises = []
 
@@ -41,8 +49,8 @@
             for( const jsonData of this.loadOrder.json){
                 const { name, addres } = jsonData
 
-                const promise = Loader.loadJson(addres).then(image =>{
-                    this.resources.json[name] = image
+                const promise = Loader.loadJson(addres).then(json =>{
+                    this.resources.json[name] = json
 
                     if(this.loadOrder.json.includes(jsonData)){
                         const index = this.loadOrder.json.indexOf(jsonData)
